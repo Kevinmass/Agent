@@ -1,0 +1,653 @@
+[
+  {
+    "name": "AnimatedContent",
+    "dependencies": "",
+    "hasSource": true,
+    "hasCSS": false,
+    "usageExample": "import AnimatedContent from './AnimatedContent'\n\n<AnimatedContent\n  distance={100}\n  direction=\"vertical\"\n  reverse={false}\n  duration={0.8}\n  ease=\"power3.out\"\n  initialOpacity={0}\n  animateOpacity\n "
+  },
+  {
+    "name": "AnimatedList",
+    "dependencies": "",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import AnimatedList from './AnimatedList'\n\nconst items = ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5', 'Item 6', 'Item 7', 'Item 8', 'Item 9', 'Item 10']; \n  \n<AnimatedList\n  items={items}\n  onIt"
+  },
+  {
+    "name": "Antigravity",
+    "dependencies": "three @react-three/fiber",
+    "hasSource": true,
+    "hasCSS": false,
+    "usageExample": "import Antigravity from './Antigravity';\n\n<div style={{ width: '100%', height: '400px', position: 'relative' }}>\n  <Antigravity\n    count={300}\n    magnetRadius={6}\n    ringRadius={7}\n    waveSpeed={0"
+  },
+  {
+    "name": "AsciiText",
+    "dependencies": "",
+    "hasSource": true,
+    "hasCSS": false,
+    "usageExample": "// Component ported and enhanced from https://codepen.io/JuanFuentes/pen/eYEeoyE\n  \nimport ASCIIText from './ASCIIText';\n\n<ASCIIText\n  text=\"Hey!\"\n  enableWaves\n  asciiFontSize={8}\n/>"
+  },
+  {
+    "name": "Beams",
+    "dependencies": "",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import Beams from './Beams';\n\n<div style={{ width: '100%', height: '600px', position: 'relative' }}>\n  <Beams\n    beamWidth={3}\n    beamHeight={30}\n    beamNumber={20}\n    lightColor=\"#ffffff\"\n    spe"
+  },
+  {
+    "name": "BlobCursor",
+    "dependencies": "gsap",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import BlobCursor from './BlobCursor';\n\n<BlobCursor\n  blobType=\"circle\"\n  fillColor=\"#5227FF\"\n  trailCount={3}\n  sizes={[60, 125, 75]}\n  innerSizes={[20, 35, 25]}\n  innerColor=\"rgba(255,255,255,0.8)\"\n"
+  },
+  {
+    "name": "BlurText",
+    "dependencies": "motion",
+    "hasSource": true,
+    "hasCSS": false,
+    "usageExample": "import BlurText from \"./BlurText\";\n\nconst handleAnimationComplete = () => {\n  console.log('Animation completed!');\n};\n\n<BlurText\n  text=\"Isn't this so cool?!\"\n  delay={150}\n  animateBy=\"words\"\n  direc"
+  },
+  {
+    "name": "BorderGlow",
+    "dependencies": "",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import BorderGlow from './BorderGlow';\n\n<BorderGlow\n  edgeSensitivity={30}\n  glowColor=\"40 80 80\"\n  backgroundColor=\"#120F17\"\n  borderRadius={28}\n  glowRadius={40}\n  glowIntensity={1}\n  coneSpread={25"
+  },
+  {
+    "name": "BounceCards",
+    "dependencies": "gsap",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import BounceCards from './BounceCards'\n\nconst images = [\n  \"https://picsum.photos/400/400?grayscale\",\n  \"https://picsum.photos/500/500?grayscale\",\n  \"https://picsum.photos/600/600?grayscale\",\n  \"http"
+  },
+  {
+    "name": "BubbleMenu",
+    "dependencies": "gsap",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import BubbleMenu from './BubbleMenu'\n\nconst items = [\n  {\n    label: 'home',\n    href: '#',\n    ariaLabel: 'Home',\n    rotation: -8,\n    hoverStyles: { bgColor: '#3b82f6', textColor: '#ffffff' }\n  },"
+  },
+  {
+    "name": "CardNav",
+    "dependencies": "gsap",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import CardNav from './CardNav'\nimport logo from './logo.svg';\n\nconst App = () => {\n  const items = [\n    {\n      label: \"About\",\n      bgColor: \"#1B1722\",\n      textColor: \"#fff\",\n      links: [\n    "
+  },
+  {
+    "name": "CardSwap",
+    "dependencies": "gsap",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import CardSwap, { Card } from './CardSwap'\n\n<div style={{ height: '600px', position: 'relative' }}>\n  <CardSwap\n    cardDistance={60}\n    verticalDistance={70}\n    delay={5000}\n    pauseOnHover={fals"
+  },
+  {
+    "name": "Carousel",
+    "dependencies": "motion",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import Carousel from './Carousel'\n\n<div style={{ height: '600px', position: 'relative' }}>\n  <Carousel\n    baseWidth={300}\n    autoplay={true}\n    autoplayDelay={3000}\n    pauseOnHover={true}\n    loop"
+  },
+  {
+    "name": "ChromaGrid",
+    "dependencies": "gsap",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import ChromaGrid from './ChromaGrid'\n\nconst items = [\n  {\n    image: \"https://i.pravatar.cc/300?img=1\",\n    title: \"Sarah Johnson\",\n    subtitle: \"Frontend Developer\",\n    handle: \"@sarahjohnson\",\n  "
+  },
+  {
+    "name": "CircularGallery",
+    "dependencies": "ogl",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import CircularGallery from './CircularGallery'\n\n<div style={{ height: '600px', position: 'relative' }}>\n  <CircularGallery\n    bend={3}\n    textColor=\"#ffffff\"\n    borderRadius={0.05}\n    scrollEase="
+  },
+  {
+    "name": "CircularText",
+    "dependencies": "motion",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import CircularText from './CircularText';\n  \n<CircularText\n  text=\"REACT*BITS*COMPONENTS*\"\n  onHover=\"speedUp\"\n  spinDuration={20}\n  className=\"custom-class\"\n/>"
+  },
+  {
+    "name": "ClickSpark",
+    "dependencies": "",
+    "hasSource": true,
+    "hasCSS": false,
+    "usageExample": "import ClickSpark from './ClickSpark';\n\n<ClickSpark\n  sparkColor='#fff'\n  sparkSize={10}\n  sparkRadius={15}\n  sparkCount={8}\n  duration={400}\n>\n  {/* Your content here */}\n</ClickSpark>"
+  },
+  {
+    "name": "CountUp",
+    "dependencies": "motion",
+    "hasSource": true,
+    "hasCSS": false,
+    "usageExample": "import CountUp from './CountUp'\n\n<CountUp\n  from={0}\n  to={100}\n  separator=\",\"\n  direction=\"up\"\n  duration={1}\n  className=\"count-up-text\"\n/>"
+  },
+  {
+    "name": "Counter",
+    "dependencies": "motion",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import Counter from './Counter';\n\n<Counter\n  value={3}\n  places={[100, 10, 1]}\n  fontSize={80}\n  padding={5}\n  gap={10}\n  textColor=\"white\"\n  fontWeight={900}\n/>"
+  },
+  {
+    "name": "Crosshair",
+    "dependencies": "gsap",
+    "hasSource": true,
+    "hasCSS": false,
+    "usageExample": "import { useRef } from 'react';\nimport Crosshair from './Crosshair';\n\nconst Component = () => {\nconst containerRef = useRef(null);\n\nreturn (\n  <div ref={containerRef} style={{ height: '300px', overflo"
+  },
+  {
+    "name": "Cubes",
+    "dependencies": "gsap",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "// CREDIT\n// Component inspired from Can Tastemel's original work for the lambda.ai landing page\n// https://cantastemel.com\n  \nimport Cubes from './Cubes'\n\n<div style={{ height: '600px', position: 're"
+  },
+  {
+    "name": "CurvedLoop",
+    "dependencies": "",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import CurvedLoop from './CurvedLoop';\n\n// Basic usage\n<CurvedLoop marqueeText=\"Welcome to React Bits \u2726\" />\n\n// With custom props\n<CurvedLoop \n  marqueeText=\"Be \u2726 Creative \u2726 With \u2726 React \u2726 Bits \u2726\"\n  s"
+  },
+  {
+    "name": "Decay",
+    "dependencies": "gsap",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import DecayCard from './DecayCard';\n\n<DecayCard width={200} height={300} image=\"https://picsum.photos/300/400?grayscale\">\n  <h2>Decay<br/>Card</h2>\n</DecayCard>"
+  },
+  {
+    "name": "Decrypted",
+    "dependencies": "motion",
+    "hasSource": true,
+    "hasCSS": false,
+    "usageExample": "import DecryptedText from './DecryptedText';\n\n{/* Example 1: Defaults (hover to decrypt) */}\n<DecryptedText text=\"Hover me!\" />\n\n{/* Example 2: Customized speed and characters */}\n<DecryptedText\ntext="
+  },
+  {
+    "name": "Dither",
+    "dependencies": "three postprocessing @react-three/fiber @react-three/postprocessing",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import Dither from './Dither';\n\n<div style={{ width: '100%', height: '600px', position: 'relative' }}>\n  <Dither\n    waveColor={[0.5, 0.5, 0.5]}\n    disableAnimation={false}\n    enableMouseInteraction"
+  },
+  {
+    "name": "Dock",
+    "dependencies": "motion",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import Dock from './Dock';\n\n  const items = [\n    { icon: <VscHome size={18} />, label: 'Home', onClick: () => alert('Home!') },\n    { icon: <VscArchive size={18} />, label: 'Archive', onClick: () => "
+  },
+  {
+    "name": "DotField",
+    "dependencies": "",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import DotField from './DotField';\n\n<div style={{ width: '100%', height: '600px', position: 'relative' }}>\n  <DotField\n    dotRadius={1.5}\n    dotSpacing={14}\n    bulgeStrength={67}\n    glowRadius={16"
+  },
+  {
+    "name": "DotGrid",
+    "dependencies": "gsap",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import DotGrid from './DotGrid';\n\n<div style={{ width: '100%', height: '600px', position: 'relative' }}>\n  <DotGrid\n    dotSize={10}\n    gap={15}\n    baseColor=\"#5227FF\"\n    activeColor=\"#5227FF\"\n    "
+  },
+  {
+    "name": "ElasticSlider",
+    "dependencies": "motion",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import ElasticSlider from './ElasticSlider'\n  \n<ElasticSlider\n  leftIcon={<>...your icon...</>}\n  rightIcon={<>...your icon...</>}\n  startingValue={500}\n  defaultValue={750}\n  maxValue={1000}\n  isStep"
+  },
+  {
+    "name": "ElectricBorder",
+    "dependencies": "",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "// CREDIT\n// Component inspired by @BalintFerenczy on X\n// https://codepen.io/BalintFerenczy/pen/KwdoyEN\n  \nimport ElectricBorder from './ElectricBorder'\n\n<ElectricBorder\n  color=\"#7df9ff\"\n  speed={1}"
+  },
+  {
+    "name": "FadeContent",
+    "dependencies": "",
+    "hasSource": true,
+    "hasCSS": false,
+    "usageExample": "import FadeContent from './FadeContent'\n  \n<FadeContent blur={true} duration={1000} easing=\"ease-out\" initialOpacity={0}>\n  {/* Anything placed inside this container will be fade into view */}\n</FadeC"
+  },
+  {
+    "name": "FallingText",
+    "dependencies": "matter-js",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import FallingText from './FallingText';\n  \n<FallingText\n  text={`React Bits is a library of animated and interactive React components designed to streamline UI development and simplify your workflow."
+  },
+  {
+    "name": "FlowingMenu",
+    "dependencies": "gsap",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import FlowingMenu from './FlowingMenu'\n\nconst demoItems = [\n  { link: '#', text: 'Mojave', image: 'https://picsum.photos/600/400?random=1' },\n  { link: '#', text: 'Sonoma', image: 'https://picsum.pho"
+  },
+  {
+    "name": "FluidGlass",
+    "dependencies": "three @react-three/fiber @react-three/drei maath",
+    "hasSource": true,
+    "hasCSS": false,
+    "usageExample": "// IMPORTANT INFO BELOW\n// This component requires a 3D model to function correctly.\n// You can find three example models in the 'public/assets/3d' directory of the repository:\n// - 'lens.glb'\n// - 'b"
+  },
+  {
+    "name": "Folder",
+    "dependencies": "",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import Folder from './Folder'\n\n<div style={{ height: '600px', position: 'relative' }}>\n  <Folder size={2} color=\"#5227FF\" className=\"custom-folder\" />\n</div>"
+  },
+  {
+    "name": "FuzzyText",
+    "dependencies": "",
+    "hasSource": true,
+    "hasCSS": false,
+    "usageExample": "import FuzzyText from './FuzzyText';\n  \n<FuzzyText \n  baseIntensity={0.2} \n  hoverIntensity={hoverIntensity} \n  enableHover={enableHover}\n>\n  404\n</FuzzyText>"
+  },
+  {
+    "name": "GlareHover",
+    "dependencies": "",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import GlareHover from './GlareHover'\n\n<div style={{ height: '600px', position: 'relative' }}>\n  <GlareHover\n    glareColor=\"#ffffff\"\n    glareOpacity={0.3}\n    glareAngle={-30}\n    glareSize={300}\n  "
+  },
+  {
+    "name": "GlassIcons",
+    "dependencies": "",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import GlassIcons from './GlassIcons'\n\n// update with your own icons and colors\nconst items = [\n  { icon: <FiFileText />, color: 'blue', label: 'Files' },\n  { icon: <FiBook />, color: 'purple', label:"
+  },
+  {
+    "name": "GlassSurface",
+    "dependencies": "",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import GlassSurface from './GlassSurface'\n\n// Basic usage\n<GlassSurface \n  width={300} \n  height={200}\n  borderRadius={24}\n  className=\"my-custom-class\"\n>\n  <h2>Glass Surface Content</h2>\n</GlassSurfa"
+  },
+  {
+    "name": "GlitchText",
+    "dependencies": "",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import GlitchText from './GlitchText';\n  \n<GlitchText\n  speed={1}\n  enableShadows={true}\n  enableOnHover={true}\n  className='custom-class'\n>\n  React Bits\n</GlitchText>"
+  },
+  {
+    "name": "GooeyNav",
+    "dependencies": "",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import GooeyNav from './GooeyNav'\n\n// update with your own items\nconst items = [\n  { label: \"Home\", href: \"#\" },\n  { label: \"About\", href: \"#\" },\n  { label: \"Contact\", href: \"#\" },\n];\n\n<div style={{ h"
+  },
+  {
+    "name": "GradientText",
+    "dependencies": "",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import GradientText from './GradientText'\n\n// For a smoother animation, the gradient should start and end with the same color\n  \n<GradientText\n  colors={[\"#40ffaa\", \"#4079ff\", \"#40ffaa\", \"#4079ff\", \"#"
+  },
+  {
+    "name": "GradualBlur",
+    "dependencies": "mathjs",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "// Component added by Ansh - github.com/ansh-dhanani\n\nimport GradualBlur from './GradualBlur';\n\n<section style={{position: 'relative',height: 500,overflow: 'hidden'}}>\n  <div style={{ height: '100%',o"
+  },
+  {
+    "name": "GridMotion",
+    "dependencies": "gsap",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import GridMotion from './GridMotion';\n  \n// note: you'll need to make sure the parent container of this component is sized properly\nconst items = [\n  'Item 1',\n  <div key='jsx-item-1'>Custom JSX Cont"
+  },
+  {
+    "name": "ImageTrail",
+    "dependencies": "gsap",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import ImageTrail from './ImageTrail;'\n\n<div style={{ height: '500px', position: 'relative', overflow: 'hidden'}}>\n  <ImageTrail\n    key={key}\n    items={[\n      'https://picsum.photos/id/287/300/300'"
+  },
+  {
+    "name": "Lanyard",
+    "dependencies": "three meshline @react-three/fiber @react-three/drei @react-three/rapier",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import Lanyard from './Lanyard'\n\n<Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} />\n\n// Pass custom images for the card's front/back faces and/or the lanyard band.\n// frontImage and backImage ren"
+  },
+  {
+    "name": "LetterGlitch",
+    "dependencies": "",
+    "hasSource": true,
+    "hasCSS": false,
+    "usageExample": "import LetterGlitch from './LetterGlitch';\n  \n<LetterGlitch\n  glitchSpeed={50}\n  centerVignette={true}\n  outerVignette={false}\n  smooth={true}\n/>"
+  },
+  {
+    "name": "LightPillar",
+    "dependencies": "three",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import LightPillar from './LightPillar';\n\n<div style={{ width: '100%', height: '600px', position: 'relative' }}>\n  <LightPillar\n    topColor=\"#5227FF\"\n    bottomColor=\"#FF9FFC\"\n    intensity={1.0}\n   "
+  },
+  {
+    "name": "LightRays",
+    "dependencies": "ogl",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import LightRays from './LightRays';\n\n<div style={{ width: '100%', height: '600px', position: 'relative' }}>\n  <LightRays\n    raysOrigin=\"top-center\"\n    raysColor=\"#00ffff\"\n    raysSpeed={1.5}\n    li"
+  },
+  {
+    "name": "Lightning",
+    "dependencies": "",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import Lightning from './Lightning';\n\n<div style={{ width: '100%', height: '600px', position: 'relative' }}>\n  <Lightning\n    hue={220}\n    xOffset={0}\n    speed={1}\n    intensity={1}\n    size={1}\n  /"
+  },
+  {
+    "name": "LogoLoop",
+    "dependencies": "",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import LogoLoop from './LogoLoop';\nimport { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss } from 'react-icons/si';\n\nconst techLogos = [\n  { node: <SiReact />, title: \"React\", href: \"https://react."
+  },
+  {
+    "name": "MagicBento",
+    "dependencies": "gsap",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import MagicBento from './MagicBento'\n\n<MagicBento \n  textAutoHide={true}\n  enableStars={true}\n  enableSpotlight={true}\n  enableBorderGlow={true}\n  enableTilt={true}\n  enableMagnetism={true}\n  clickEf"
+  },
+  {
+    "name": "MagicRings",
+    "dependencies": "",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import MagicRings from './MagicRings';\n\n<div style={{ width: '600px', height: '400px', position: 'relative' }}>\n  <MagicRings\n    color=\"#fc42ff\"\n    colorTwo=\"#42fcff\"\n    ringCount={6}\n    speed={1}"
+  },
+  {
+    "name": "Magnet",
+    "dependencies": "",
+    "hasSource": true,
+    "hasCSS": false,
+    "usageExample": "import Magnet from './Magnet'\n\n<Magnet padding={50} disabled={false} magnetStrength={50}>\n  <p>Star React Bits on GitHub!</p>\n</Magnet>"
+  },
+  {
+    "name": "MagnetLines",
+    "dependencies": "",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import MagnetLines from './MagnetLines';\n\n<MagnetLines\n  rows={9}\n  columns={9}\n  containerSize=\"60vmin\"\n  lineColor=\"tomato\"\n  lineWidth=\"0.8vmin\"\n  lineHeight=\"5vmin\"\n  baseAngle={0}\n  style={{ marg"
+  },
+  {
+    "name": "Masonry",
+    "dependencies": "gsap",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import Masonry from './Masonry';\n\nconst items = [\n    {\n      id: \"1\",\n      img: \"https://picsum.photos/id/1015/600/900?grayscale\",\n      url: \"https://example.com/one\",\n      height: 400,\n    },\n   "
+  },
+  {
+    "name": "MetallicPaint",
+    "dependencies": "",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "// Effect inspired by Paper's Liquid Metal effect\n  \nimport MetallicPaint from \"./MetallicPaint\";\n\n// Replace with your own SVG path\n// NOTE: Your SVG should have padding around the shape to prevent c"
+  },
+  {
+    "name": "ModelViewer",
+    "dependencies": "three @react-three/fiber @react-three/drei",
+    "hasSource": true,
+    "hasCSS": false,
+    "usageExample": "import ModelViewer from './ModelViewer';\n\n<ModelViewer\n  url=\"https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/main/2.0/ToyCar/glTF-Binary/ToyCar.glb\"\n  width={400}\n  height={400}\n/>"
+  },
+  {
+    "name": "Noise",
+    "dependencies": "",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import Noise from './Noise;'\n\n<div style={{width: '600px', height: '400px', position: 'relative', overflow: 'hidden'}}>\n  <Noise\n    patternSize={250}\n    patternScaleX={1}\n    patternScaleY={1}\n    p"
+  },
+  {
+    "name": "OrbitImages",
+    "dependencies": "motion",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "// Component created by Dominik Koch\n// https://x.com/dominikkoch\n\nimport OrbitImages from './OrbitImages'\n\nconst images = [\n  \"https://picsum.photos/300/300?grayscale&random=1\",\n  \"https://picsum.pho"
+  },
+  {
+    "name": "PillNav",
+    "dependencies": "gsap",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import PillNav from './PillNav';\nimport logo from '/path/to/logo.svg';\n\n<PillNav\n  logo={logo}\n  logoAlt=\"Company Logo\"\n  items={[\n    { label: 'Home', href: '/' },\n    { label: 'About', href: '/about"
+  },
+  {
+    "name": "PixelCard",
+    "dependencies": "",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import PixelCard from './PixelCard';\n\n<PixelCard variant=\"pink\">\n  // your card content (use position: absolute)\n</PixelCard>"
+  },
+  {
+    "name": "PixelTrail",
+    "dependencies": "three @react-three/fiber @react-three/drei",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import PixelTrail from './PixelTrail';\n\n<div style={{ height: '500px', position: 'relative', overflow: 'hidden'}}>\n  <PixelTrail\n    gridSize={50}\n    trailSize={0.1}\n    maxAge={250}\n    interpolate="
+  },
+  {
+    "name": "PixelTransition",
+    "dependencies": "gsap",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import PixelTransition from './PixelTransition';\n\n<PixelTransition\n  firstContent={\n    <img\n      src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Cat03.jpg/1200px-Cat03.jpg\"\n      alt="
+  },
+  {
+    "name": "Plasma",
+    "dependencies": "ogl",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import Plasma from './Plasma';\n\n<div style={{ width: '100%', height: '600px', position: 'relative' }}>\n  <Plasma \n    color=\"#ff6b35\"\n    speed={0.6}\n    direction=\"forward\"\n    scale={1.1}\n    opacit"
+  },
+  {
+    "name": "ProfileCard",
+    "dependencies": "",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import ProfileCard from './ProfileCard'\n  \n<ProfileCard\n  name=\"Javi A. Torres\"\n  title=\"Software Engineer\"\n  handle=\"javicodes\"\n  status=\"Online\"\n  contactText=\"Contact Me\"\n  avatarUrl=\"/path/to/avat"
+  },
+  {
+    "name": "ReflectiveCard",
+    "dependencies": "lucide-react",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import ReflectiveCard from './ReflectiveCard';\n\n<div style={{ height: '600px', position: 'relative' }}>\n  <ReflectiveCard\n    overlayColor=\"rgba(0, 0, 0, 0.2)\"\n    blurStrength={10}\n    glassDistortio"
+  },
+  {
+    "name": "RotatingText",
+    "dependencies": "motion",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import RotatingText from './RotatingText'\n  \n<RotatingText\n  texts={['React', 'Bits', 'Is', 'Cool!']}\n  mainClassName=\"px-2 sm:px-2 md:px-3 bg-cyan-300 text-black overflow-hidden py-0.5 sm:py-1 md:py-"
+  },
+  {
+    "name": "ScrambledText",
+    "dependencies": "gsap",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "// Component inspired by Tom Miller from the GSAP community\n// https://codepen.io/creativeocean/pen/NPWLwJM\n\nimport ScrambledText from './ScrambledText';\n  \n<ScrambledText\n  className=\"scrambled-text-"
+  },
+  {
+    "name": "ScrollFloat",
+    "dependencies": "gsap",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import ScrollFloat from './ScrollFloat';\n\n<ScrollFloat\n  animationDuration={1}\n  ease='back.inOut(2)'\n  scrollStart='center bottom+=50%'\n  scrollEnd='bottom bottom-=40%'\n  stagger={0.03}\n>\n  React Bit"
+  },
+  {
+    "name": "ScrollReveal",
+    "dependencies": "gsap",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import ScrollReveal from './ScrollReveal';\n\n<ScrollReveal\n  baseOpacity={0}\n  enableBlur={true}\n  baseRotation={5}\n  blurStrength={10}\n>\n  When does a man die? When he is hit by a bullet? No! When he "
+  },
+  {
+    "name": "ScrollStack",
+    "dependencies": "lenis",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import ScrollStack, { ScrollStackItem } from './ScrollStack'\n\n<ScrollStack>\n  <ScrollStackItem>\n    <h2>Card 1</h2>\n    <p>This is the first card in the stack</p>\n  </ScrollStackItem>\n  <ScrollStackIt"
+  },
+  {
+    "name": "ScrollVelocity",
+    "dependencies": "motion",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import ScrollVelocity from './ScrollVelocity';\n  \n<ScrollVelocity\n  texts={['React Bits', 'Scroll Down']} \n  velocity={velocity} \n  className=\"custom-scroll-text\"\n/>"
+  },
+  {
+    "name": "ShapeGrid",
+    "dependencies": "",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import ShapeGrid from './ShapeGrid';\n  \n<ShapeGrid \nspeed={0.5} \nsquareSize={40}\ndirection='diagonal' // up, down, left, right, diagonal\nborderColor='#fff'\nhoverFillColor='#222'\nshape='square' // squa"
+  },
+  {
+    "name": "ShinyText",
+    "dependencies": "motion",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import ShinyText from './ShinyText';\n\n<ShinyText\n  text=\"\u2728 Shiny Text Effect\"\n  speed={2}\n  delay={0}\n  color=\"#b5b5b5\"\n  shineColor=\"#ffffff\"\n  spread={120}\n  direction=\"left\"\n  yoyo={false}\n  pauseO"
+  },
+  {
+    "name": "Shuffle",
+    "dependencies": "gsap @gsap/react",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import Shuffle from './Shuffle';\n\n<Shuffle\n  text=\"Hello World\"\n  shuffleDirection=\"right\"\n  duration={0.35}\n  animationMode=\"evenodd\"\n  shuffleTimes={1}\n  ease=\"power3.out\"\n  stagger={0.03}\n  thresho"
+  },
+  {
+    "name": "SideRays",
+    "dependencies": "",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import SideRays from './SideRays';\n\n<div style={{ width: '100%', height: '600px', position: 'relative' }}>\n  <SideRays\n    speed={2.5}\n    rayColor1=\"#EAB308\"\n    rayColor2=\"#96c8ff\"\n    intensity={2}"
+  },
+  {
+    "name": "Silk",
+    "dependencies": "",
+    "hasSource": true,
+    "hasCSS": false,
+    "usageExample": "import Silk from './Silk';\n\n<Silk\n  speed={5}\n  scale={1}\n  color=\"#7B7481\"\n  noiseIntensity={1.5}\n  rotation={0}\n/>"
+  },
+  {
+    "name": "SplitText",
+    "dependencies": "gsap @gsap/react",
+    "hasSource": true,
+    "hasCSS": false,
+    "usageExample": "import SplitText from \"./SplitText\";\n\nconst handleAnimationComplete = () => {\n  console.log('All letters have animated!');\n};\n\n<SplitText\n  text=\"Hello, GSAP!\"\n  className=\"text-2xl font-semibold text"
+  },
+  {
+    "name": "SpotlightCard",
+    "dependencies": "",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import SpotlightCard from './SpotlightCard';\n  \n<SpotlightCard className=\"custom-spotlight-card\" spotlightColor=\"rgba(0, 229, 255, 0.2)\">\n  // Content goes here\n</SpotlightCard>"
+  },
+  {
+    "name": "Stack",
+    "dependencies": "motion",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import Stack from './Stack'\n\nconst images = [\n  \"https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?q=80&w=500&auto=format\",\n  \"https://images.unsplash.com/photo-1449844908441-8829872d2607?q"
+  },
+  {
+    "name": "StarBorder",
+    "dependencies": "",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import StarBorder from './StarBorder'\n  \n<StarBorder\n  as=\"button\"\n  className=\"custom-class\"\n  color=\"cyan\"\n  speed=\"5s\"\n>\n  // content\n</StarBorder>"
+  },
+  {
+    "name": "Stepper",
+    "dependencies": "motion",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import Stepper, { Step } from './Stepper';\n  \n<Stepper\n  initialStep={2}\n  onStepChange={(step) => {\n    console.log(step);\n  }}\n  onFinalStepCompleted={() => console.log(\"All steps completed!\")}\n  ba"
+  },
+  {
+    "name": "StickerPeel",
+    "dependencies": "",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import StickerPeel from './StickerPeel'\nimport logo from './assets/sticker.png'\n  \n<StickerPeel\n  imageSrc={logo}\n  width={200}\n  rotate={30}\n  peelBackHoverPct={20}\n  peelBackActivePct={40}\n  shadowI"
+  },
+  {
+    "name": "Strands",
+    "dependencies": "",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import Strands from './Strands';\n\n<div style={{ width: '100%', height: '600px', position: 'relative' }}>\n  <Strands\n    colors={[\"#F97316\",\"#7C3AED\",\"#06B6D4\"]}\n    count={3}\n    speed={0.5}\n    ampli"
+  },
+  {
+    "name": "TargetCursor",
+    "dependencies": "gsap",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import TargetCursor from './TargetCursor';\n\nexport default function App() {\n  return (\n    <div>\n      <TargetCursor \n        spinDuration={2}\n        hideDefaultCursor={true}\n        parallaxOn={true"
+  },
+  {
+    "name": "TextCursor",
+    "dependencies": "motion",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import TextCursor from './TextCursor';\n\n<TextCursor\n  text=\"Hello!\"\n  spacing={80}\n  followMouseDirection={true}\n  randomFloat={true}\n  exitDuration={0.3}\n  removalInterval={20}\n  maxPoints={10}\n/>"
+  },
+  {
+    "name": "TextPressure",
+    "dependencies": "",
+    "hasSource": true,
+    "hasCSS": false,
+    "usageExample": "// Component ported from https://codepen.io/JuanFuentes/full/rgXKGQ\n// Font used - https://compressa.preusstype.com/\n  \nimport TextPressure from './TextPressure';\n\n// Note:\n// Make sure the font you'r"
+  },
+  {
+    "name": "TextType",
+    "dependencies": "gsap",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import TextType from './TextType';\n\n<TextType \n  text={[\"Text typing effect\", \"for your websites\", \"Happy coding!\"]}\n  typingSpeed={75}\n  pauseDuration={1500}\n  showCursor={true}\n  cursorCharacter=\"|\""
+  },
+  {
+    "name": "TiltedCard",
+    "dependencies": "motion",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import TiltedCard from './TiltedCard';\n\n<TiltedCard\n  imageSrc=\"https://i.scdn.co/image/ab67616d0000b273d9985092cd88bffd97653b58\"\n  altText=\"Kendrick Lamar - GNX Album Cover\"\n  captionText=\"Kendrick L"
+  },
+  {
+    "name": "TrueFocus",
+    "dependencies": "motion",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import TrueFocus from './TrueFocus';\n\n<TrueFocus \nsentence=\"True Focus\"\nmanualMode={false}\nblurAmount={5}\nborderColor=\"red\"\nanimationDuration={2}\npauseBetweenAnimations={1}\n/>"
+  },
+  {
+    "name": "VariableProximity",
+    "dependencies": "motion",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import { useRef } from 'react';\nimport VariableProximity from './VariableProximity';\n\nconst containerRef = useRef(null);\n\n<div\nref={containerRef}\nstyle={{position: 'relative'}}\n>\n  <VariableProximity\n"
+  },
+  {
+    "name": "Waves",
+    "dependencies": "",
+    "hasSource": true,
+    "hasCSS": true,
+    "usageExample": "import Waves from './Waves';\n\n<Waves\n  lineColor=\"#fff\"\n  backgroundColor=\"rgba(255, 255, 255, 0.2)\"\n  waveSpeedX={0.02}\n  waveSpeedY={0.01}\n  waveAmpX={40}\n  waveAmpY={20}\n  friction={0.9}\n  tension="
+  }
+]
