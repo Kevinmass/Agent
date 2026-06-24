@@ -299,4 +299,21 @@ export const propConfigs = {
   CountUp: [
     { name: 'duration', label: 'Duration', type: 'range', min: 0.5, max: 10, step: 0.5, default: 2.5 },
   ],
+
+  ShaderGradient: [
+    { name: 'type', label: 'Type', type: 'select', options: ['plane', 'sphere', 'waterPlane'], default: 'plane' },
+    { name: 'uSpeed', label: 'Speed', type: 'range', min: 0, max: 2, step: 0.1, default: 0.4 },
+    { name: 'uStrength', label: 'Strength', type: 'range', min: 0, max: 1, step: 0.05, default: 0.2 },
+    { name: 'uFrequency', label: 'Frequency', type: 'range', min: 0, max: 5, step: 0.1, default: 1.5 },
+    { name: 'cDistance', label: 'Camera Distance', type: 'range', min: 1, max: 10, step: 0.1, default: 3.6 },
+  ],
+
+  LiquidLogo: [
+    { name: 'patternScale', label: 'Pattern Scale', type: 'range', min: 1, max: 10, step: 0.1, default: 2 },
+    { name: 'refraction', label: 'Refraction', type: 'range', min: 0, max: 0.06, step: 0.001, default: 0.015 },
+    { name: 'edge', label: 'Edge', type: 'range', min: 0, max: 1, step: 0.01, default: 0.4 },
+    { name: 'patternBlur', label: 'Pattern Blur', type: 'range', min: 0, max: 0.05, step: 0.001, default: 0.005 },
+    { name: 'liquid', label: 'Liquify', type: 'range', min: 0, max: 1, step: 0.01, default: 0.07 },
+    { name: 'speed', label: 'Speed', type: 'range', min: 0, max: 1, step: 0.01, default: 0.3 },
+  ],
 };

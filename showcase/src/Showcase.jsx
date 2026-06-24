@@ -129,6 +129,8 @@ const componentMap = {
   TrueFocus: lazy(() => import('./components/TrueFocus/TrueFocus.jsx')),
   VariableProximity: lazy(() => import('./components/VariableProximity/VariableProximity.jsx')),
   Waves: lazy(() => import('./components/Waves/Waves.jsx')),
+  ShaderGradient: lazy(() => import('./components/ShaderGradient/ShaderGradient.jsx')),
+  LiquidLogo: lazy(() => import('./components/LiquidLogo/LiquidLogo.jsx')),
 };
 
 const IMAGES = [
@@ -1615,6 +1617,26 @@ const demos = {
           accentColor="#ff6b6b"
           isFixed={false}
         />
+      </div>
+    );
+  },
+
+  ShaderGradient: ({ controls = {} }) => {
+    const Comp = componentMap.ShaderGradient;
+    const { uSpeed = 0.4, uStrength = 0.2, uFrequency = 1.5, type = 'plane', cDistance = 3.6 } = controls;
+    return (
+      <div style={{ width: '100%', height: 450, margin: '1rem', position: 'relative', borderRadius: 16, overflow: 'hidden' }}>
+        <Comp type={type} uSpeed={uSpeed} uStrength={uStrength} uFrequency={uFrequency} cDistance={cDistance} />
+      </div>
+    );
+  },
+
+  LiquidLogo: ({ controls = {} }) => {
+    const Comp = componentMap.LiquidLogo;
+    const { patternScale = 2, refraction = 0.015, edge = 0.4, patternBlur = 0.005, liquid = 0.07, speed = 0.3 } = controls;
+    return (
+      <div style={{ width: '100%', height: 450, margin: '1rem', position: 'relative', borderRadius: 16, overflow: 'hidden' }}>
+        <Comp patternScale={patternScale} refraction={refraction} edge={edge} patternBlur={patternBlur} liquid={liquid} speed={speed} />
       </div>
     );
   },
