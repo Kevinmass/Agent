@@ -12,7 +12,6 @@ const Beams = lazy(() => import('../components/Beams/Beams.jsx'));
 const DotField = lazy(() => import('../components/DotField/DotField.jsx'));
 const SplashCursor = lazy(() => import('../components/SplashCursor/SplashCursor.jsx'));
 const FloatingLines = lazy(() => import('../components/FloatingLines/FloatingLines.jsx'));
-const Stack = lazy(() => import('../components/Stack/Stack.jsx'));
 const DecryptedText = lazy(() => import('../components/Decrypted/Decrypted.jsx'));
 const CountUp = lazy(() => import('../components/CountUp/CountUp.jsx'));
 const ImageTrail = lazy(() => import('../components/ImageTrail/ImageTrail.jsx'));
@@ -152,13 +151,7 @@ export default function Landing({ onEnterShowcase }) {
         <Suspense fallback={null}>
           <div style={{ position: 'absolute', inset: 0, opacity: 0.4 }}>
             <DotField
-              dotColor="rgba(108,92,231,0.3)"
               glowColor="rgba(108,92,231,0.1)"
-              fieldHeight={500}
-              fieldWidth="100%"
-              density={0.3}
-              cursorEffect="bulge"
-              bulgeRadius={200}
             />
           </div>
         </Suspense>
@@ -201,20 +194,7 @@ export default function Landing({ onEnterShowcase }) {
           </div>
         </Suspense>
         <div style={{ position: 'relative', zIndex: 1, padding: '2rem', display: 'flex', justifyContent: 'center' }}>
-          <div style={{ maxWidth: 400 }}>
-            <Suspense fallback={
-              <div style={{ height: 320, background: 'rgba(255,255,255,0.02)', borderRadius: 20 }} />
-            }>
-              <Stack
-                cards={[
-                  <img src="https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?q=80&w=500&auto=format" alt="card-1" className="card-image" />,
-                  <img src="https://images.unsplash.com/photo-1449844908441-8829872d2607?q=80&w=500&auto=format" alt="card-2" className="card-image" />,
-                  <img src="https://images.unsplash.com/photo-1508014464832-8e604b4f5c28?q=80&w=500&auto=format" alt="card-3" className="card-image" />,
-                ]}
-                autoplay={true}
-                autoplayDelay={3000}
-              />
-            </Suspense>
+          <div style={{ maxWidth: 400, height: 420 }}>
           </div>
         </div>
       </section>
@@ -242,12 +222,12 @@ export default function Landing({ onEnterShowcase }) {
         }>
           <ImageTrail
             items={[
-              'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&h=300&fit=crop',
-              'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=400&h=300&fit=crop',
-              'https://images.unsplash.com/photo-1555099962-4199c345e5dd?w=400&h=300&fit=crop',
-              'https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=400&h=300&fit=crop',
-              'https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&h=300&fit=crop',
-              'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=400&h=300&fit=crop',
+              '/1.png',
+              '/2.png',
+              '/3.png',
+              '/4.png',
+              '/5.png',
+              '/6.png',
             ]}
             variant={2}
           />

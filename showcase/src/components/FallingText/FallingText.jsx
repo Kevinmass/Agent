@@ -3,7 +3,6 @@ import Matter from 'matter-js';
 import './FallingText.css';
 
 const FallingText = ({
-  className = '',
   text = '',
   highlightWords = [],
   highlightClass = 'highlighted',
@@ -57,6 +56,8 @@ const FallingText = ({
 
     const { Engine, Render, World, Bodies, Runner, Mouse, MouseConstraint } = Matter;
 
+    if (!containerRef.current || !canvasContainerRef.current || !textRef.current) return;
+
     const containerRect = containerRef.current.getBoundingClientRect();
     const width = containerRect.width;
     const height = containerRect.height;
@@ -89,7 +90,7 @@ const FallingText = ({
     const ceiling = Bodies.rectangle(width / 2, -25, width, 50, boundaryOptions);
 
     const wordSpans = textRef.current.querySelectorAll('.word');
-    const wordBodies = [...wordSpans].map(elem => {
+    const wordBodies = Array.from(wordSpans).map(elem => {
       const rect = elem.getBoundingClientRect();
 
       const x = rect.left - containerRect.left + rect.width / 2;
@@ -149,10 +150,9 @@ const FallingText = ({
       Render.stop(render);
       Runner.stop(runner);
       if (render.canvas && canvasContainerRef.current) {
-        // eslint-disable-next-line react-hooks/exhaustive-deps
         canvasContainerRef.current.removeChild(render.canvas);
       }
-      World.clear(engine.world);
+      World.clear(engine.world, false);
       Engine.clear(engine);
     };
   }, [effectStarted, gravity, wireframes, backgroundColor, mouseConstraintStiffness]);
@@ -166,7 +166,7 @@ const FallingText = ({
   return (
     <div
       ref={containerRef}
-      className={`falling-text-container ${className}`}
+      className="falling-text-container"
       onClick={trigger === 'click' ? handleTrigger : undefined}
       onMouseEnter={trigger === 'hover' ? handleTrigger : undefined}
       style={{

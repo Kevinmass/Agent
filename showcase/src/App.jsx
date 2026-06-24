@@ -5,13 +5,13 @@ import Landing from './pages/Landing';
 import './App.css';
 
 const CATEGORIES = {
-  'Text Animations': ['BlurText', 'FallingText', 'FuzzyText', 'GlitchText', 'GradientText', 'GradualBlur', 'RotatingText', 'ScrambledText', 'ScrollFloat', 'ScrollReveal', 'ShinyText', 'SplitText', 'TextCursor', 'TextPressure', 'TextType', 'TrueFocus', 'VariableProximity', 'AsciiText', 'Decrypted', 'LetterGlitch', 'CircularText', 'CountUp'],
-  'Cards & Galleries': ['BounceCards', 'CardSwap', 'Carousel', 'CircularGallery', 'DomeGallery', 'FlyingPosters', 'GlassIcons', 'GridMotion', 'ImageTrail', 'Masonry', 'PixelCard', 'ProfileCard', 'ReflectiveCard', 'ScrollStack', 'SpotlightCard', 'TiltedCard', 'Stack', 'MagicBento', 'GlareHover', 'CardNav'],
-  'Interactive & Cursor': ['BlobCursor', 'ClickSpark', 'Crosshair', 'Magnet', 'MagnetLines', 'PixelTrail', 'Stepper', 'StickerPeel', 'TargetCursor', 'TextCursor', 'Dock', 'Strands', 'VariableProximity', 'GhostCursor', 'SplashCursor'],
+  'Text Animations': ['AnimeText', 'BlurText', 'FallingText', 'FuzzyText', 'GlitchText', 'GradientText', 'GradualBlur', 'RotatingText', 'ScrambledText', 'ScrollFloat', 'ScrollReveal', 'ShinyText', 'SplitText', 'TextPressure', 'TextType', 'TrueFocus', 'VariableProximity', 'AsciiText', 'Decrypted', 'LetterGlitch', 'CircularText', 'CountUp'],
+  'Cards & Galleries': ['BounceCards', 'CardSwap', 'Carousel', 'CircularGallery', 'DomeGallery', 'FlyingPosters', 'GlassIcons', 'GridMotion', 'ImageTrail', 'Masonry', 'PixelCard', 'ProfileCard', 'ReflectiveCard', 'ScrollStack', 'SpotlightCard', 'TiltedCard', 'MagicBento', 'GlareHover', 'CardNav'],
+  'Interactive & Cursor': ['AnimeSpring', 'BlobCursor', 'ClickSpark', 'Crosshair', 'Magnet', 'MagnetLines', 'PixelTrail', 'Stepper', 'StickerPeel', 'TargetCursor', 'Dock', 'Strands', 'VariableProximity', 'GhostCursor', 'SplashCursor'],
   'Nav & Menus': ['BubbleMenu', 'GooeyNav', 'PillNav', 'FlowingMenu', 'StarBorder', 'BorderGlow', 'StaggeredMenu', 'InfiniteMenu'],
-  'Backgrounds & Effects': ['Antigravity', 'Aurora', 'Balatro', 'Beams', 'ChromaGrid', 'ColorBends', 'Cubes', 'DarkVeil', 'Decay', 'Dither', 'DotField', 'DotGrid', 'ElectricBorder', 'EvilEye', 'FaultyTerminal', 'Ferrofluid', 'FloatingLines', 'Galaxy', 'GradientBlinds', 'Grainient', 'Hyperspeed', 'Iridescence', 'LaserFlow', 'LightPillar', 'LightRays', 'Lightfall', 'Lightning', 'LineWaves', 'LiquidChrome', 'LiquidEther', 'MetallicPaint', 'Noise', 'Orb', 'Particles', 'Plasma', 'PlasmaWave', 'PixelBlast', 'PixelSnow', 'Prism', 'PrismaticBurst', 'Radar', 'RippleGrid', 'ShapeBlur', 'ShapeGrid', 'SideRays', 'Silk', 'SoftAurora', 'Threads', 'Waves'],
+  'Backgrounds & Effects': ['AnimeMorph', 'Antigravity', 'Aurora', 'Balatro', 'Beams', 'ChromaGrid', 'ColorBends', 'Cubes', 'DarkVeil', 'Decay', 'Dither', 'DotField', 'DotGrid', 'ElectricBorder', 'EvilEye', 'FaultyTerminal', 'Ferrofluid', 'FloatingLines', 'Galaxy', 'GradientBlinds', 'Grainient', 'Hyperspeed', 'Iridescence', 'LaserFlow', 'LightPillar', 'LightRays', 'Lightfall', 'Lightning', 'LineWaves', 'LiquidChrome', 'LiquidEther', 'MetallicPaint', 'Noise', 'Orb', 'Particles', 'Plasma', 'PlasmaWave', 'PixelBlast', 'PixelSnow', 'Prism', 'PrismaticBurst', 'Radar', 'RippleGrid', 'ShapeBlur', 'ShapeGrid', 'SideRays', 'Silk', 'SoftAurora', 'Threads', 'Waves'],
   'Animations': ['Ribbons', 'MetaBalls'],
-  'Miscellaneous': ['AnimatedContent', 'AnimatedList', 'FadeContent', 'Folder', 'GlassSurface', 'LogoLoop', 'MagicRings', 'ScrollVelocity', 'Shuffle', 'CurvedLoop']
+  'Miscellaneous': ['AnimatedContent', 'AnimatedList', 'AnimeScroll', 'FadeContent', 'Folder', 'GlassSurface', 'LogoLoop', 'MagicRings', 'ScrollVelocity', 'Shuffle', 'CurvedLoop']
 };
 
 function App() {

@@ -1,8 +1,14 @@
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useState, useEffect } from 'react';
+import PropControls from './PropControls.jsx';
+import { propConfigs } from './propConfigs.js';
 
 const componentMap = {
   AnimatedContent: lazy(() => import('./components/AnimatedContent/AnimatedContent.jsx')),
   AnimatedList: lazy(() => import('./components/AnimatedList/AnimatedList.jsx')),
+  AnimeMorph: lazy(() => import('./components/AnimeMorph/AnimeMorph.jsx')),
+  AnimeScroll: lazy(() => import('./components/AnimeScroll/AnimeScroll.jsx')),
+  AnimeSpring: lazy(() => import('./components/AnimeSpring/AnimeSpring.jsx')),
+  AnimeText: lazy(() => import('./components/AnimeText/AnimeText.jsx')),
   Antigravity: lazy(() => import('./components/Antigravity/Antigravity.jsx')),
   Aurora: lazy(() => import('./components/Aurora/Aurora.jsx')),
   AsciiText: lazy(() => import('./components/AsciiText/AsciiText.jsx')),
@@ -110,14 +116,12 @@ const componentMap = {
   SplashCursor: lazy(() => import('./components/SplashCursor/SplashCursor.jsx')),
   SplitText: lazy(() => import('./components/SplitText/SplitText.jsx')),
   SpotlightCard: lazy(() => import('./components/SpotlightCard/SpotlightCard.jsx')),
-  Stack: lazy(() => import('./components/Stack/Stack.jsx')),
   StaggeredMenu: lazy(() => import('./components/StaggeredMenu/StaggeredMenu.jsx')),
   StarBorder: lazy(() => import('./components/StarBorder/StarBorder.jsx')),
   Stepper: lazy(() => import('./components/Stepper/Stepper.jsx')),
   StickerPeel: lazy(() => import('./components/StickerPeel/StickerPeel.jsx')),
   Strands: lazy(() => import('./components/Strands/Strands.jsx')),
   TargetCursor: lazy(() => import('./components/TargetCursor/TargetCursor.jsx')),
-  TextCursor: lazy(() => import('./components/TextCursor/TextCursor.jsx')),
   TextPressure: lazy(() => import('./components/TextPressure/TextPressure.jsx')),
   TextType: lazy(() => import('./components/TextType/TextType.jsx')),
   TiltedCard: lazy(() => import('./components/TiltedCard/TiltedCard.jsx')),
@@ -172,11 +176,12 @@ const cardStyle = {
 };
 
 const demos = {
-  AnimatedContent: () => {
+  AnimatedContent: ({ controls = {} }) => {
     const Comp = componentMap.AnimatedContent;
+    const { distance = 60, direction = 'vertical', reverse = false, duration = 0.5 } = controls;
     return (
       <div style={{ ...cardStyle, padding: '2rem', margin: '1rem' }}>
-        <Comp distance={60} direction="vertical" reverse={false} duration={0.5} ease="power3.out">
+        <Comp distance={distance} direction={direction} reverse={reverse} duration={duration} ease="power3.out">
           <div>
             <h3 style={{ color: '#fff', margin: '0 0 0.75rem', fontSize: '1.1rem' }}>✦ Animated Content</h3>
             {LOREM}
@@ -195,11 +200,70 @@ const demos = {
     );
   },
 
-  Antigravity: () => {
+  AnimeMorph: ({ controls = {} }) => {
+    const Comp = componentMap.AnimeMorph;
+    const { width = 180, height = 180, strokeWidth = 2, loop = true, autoplay = true } = controls;
+    return (
+      <div style={{ ...cardStyle, padding: '2rem', margin: '1rem', display: 'flex', justifyContent: 'center' }}>
+        <Comp width={width} height={height} strokeColor="#a78bfa" strokeWidth={strokeWidth} loop={loop} autoplay={autoplay} />
+      </div>
+    );
+  },
+
+  AnimeScroll: () => {
+    const Comp = componentMap.AnimeScroll;
+    return (
+      <div style={{ ...cardStyle, padding: '2rem', margin: '1rem', minHeight: 400 }}>
+        <div style={{ paddingTop: '8rem' }}>
+          <Comp>
+            <h3 style={{ color: '#fff', margin: '0 0 0.75rem', fontSize: '1.1rem' }}>✦ Anime Scroll Reveal</h3>
+            {LOREM}
+          </Comp>
+        </div>
+      </div>
+    );
+  },
+
+  AnimeSpring: ({ controls = {} }) => {
+    const Comp = componentMap.AnimeSpring;
+    const { bounce = 0.6, stiffness = 180, damping = 18, draggable = true } = controls;
+    return (
+      <div style={{ ...cardStyle, padding: '1rem', margin: '1rem', display: 'flex', justifyContent: 'center' }}>
+        <Comp bounce={bounce} stiffness={stiffness} damping={damping} draggable={draggable}>
+          <div style={{
+            width: 200, height: 160,
+            background: 'linear-gradient(135deg, #6366f1, #a855f7)',
+            borderRadius: 20,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            color: '#fff',
+            fontSize: '1rem',
+            userSelect: 'none'
+          }}>
+            Drag or hover me
+          </div>
+        </Comp>
+      </div>
+    );
+  },
+
+  AnimeText: ({ controls = {} }) => {
+    const Comp = componentMap.AnimeText;
+    const { staggerDelay = 50, direction = 'up', splitBy = 'chars' } = controls;
+    return (
+      <div style={{ ...cardStyle, padding: '2rem', margin: '1rem', textAlign: 'center' }}>
+        <Comp text="Anime.js Text Animation" staggerDelay={staggerDelay} direction={direction} splitBy={splitBy} />
+      </div>
+    );
+  },
+
+  Antigravity: ({ controls = {} }) => {
     const Comp = componentMap.Antigravity;
+    const { count = 200, magnetRadius = 6, ringRadius = 7, waveSpeed = 0.4, waveAmplitude = 1, particleSize = 1.5 } = controls;
     return (
       <div style={{ width: '100%', height: 400, margin: '1rem', position: 'relative' }}>
-        <Comp count={200} magnetRadius={6} ringRadius={7} waveSpeed={0.4} waveAmplitude={1} particleSize={1.5} color="#a78bfa" />
+        <Comp count={count} magnetRadius={magnetRadius} ringRadius={ringRadius} waveSpeed={waveSpeed} waveAmplitude={waveAmplitude} particleSize={particleSize} color="#a78bfa" />
       </div>
     );
   },
@@ -231,11 +295,12 @@ const demos = {
     );
   },
 
-  Beams: () => {
+  Beams: ({ controls = {} }) => {
     const Comp = componentMap.Beams;
+    const { beamWidth = 3, beamHeight = 30, beamNumber = 15, speed = 1.5, noiseIntensity = 1.5, scale = 0.2, rotation = 30 } = controls;
     return (
       <div style={{ width: '100%', height: 360, margin: '1rem', position: 'relative', background: '#080812' }}>
-        <Comp beamWidth={3} beamHeight={30} beamNumber={15} lightColor="#ffffff" speed={1.5} noiseIntensity={1.5} scale={0.2} rotation={30} />
+        <Comp beamWidth={beamWidth} beamHeight={beamHeight} beamNumber={beamNumber} lightColor="#ffffff" speed={speed} noiseIntensity={noiseIntensity} scale={scale} rotation={rotation} />
       </div>
     );
   },
@@ -249,20 +314,22 @@ const demos = {
     );
   },
 
-  BlurText: () => {
+  BlurText: ({ controls = {} }) => {
     const Comp = componentMap.BlurText;
+    const { delay = 150, animateBy = 'words', direction = 'top' } = controls;
     return (
       <div style={{ ...cardStyle, padding: '3rem 2rem', margin: '1rem', textAlign: 'center' }}>
-        <Comp text="Blur Reveal Effect" delay={150} animateBy="words" direction="top" />
+        <Comp text="Blur Reveal Effect" delay={delay} animateBy={animateBy} direction={direction} />
       </div>
     );
   },
 
-  BorderGlow: () => {
+  BorderGlow: ({ controls = {} }) => {
     const Comp = componentMap.BorderGlow;
+    const { edgeSensitivity = 30, borderRadius = 24, glowRadius = 40, glowIntensity = 1, coneSpread = 25 } = controls;
     return (
       <div style={{ margin: '1rem' }}>
-        <Comp edgeSensitivity={30} glowColor="60 80 120" backgroundColor="#0f0f18" borderRadius={24} glowRadius={40} glowIntensity={1} coneSpread={25}>
+        <Comp edgeSensitivity={edgeSensitivity} glowColor="60 80 120" backgroundColor="#0f0f18" borderRadius={borderRadius} glowRadius={glowRadius} glowIntensity={glowIntensity} coneSpread={coneSpread}>
           <div style={{ padding: '3rem 2rem', textAlign: 'center' }}>
             <h3 style={{ color: '#fff', margin: '0 0 0.5rem' }}>✦ Border Glow</h3>
             <p style={{ color: '#888', margin: 0 }}>Hover near the edges</p>
@@ -272,18 +339,19 @@ const demos = {
     );
   },
 
-  BounceCards: () => {
+  BounceCards: ({ controls = {} }) => {
     const Comp = componentMap.BounceCards;
+    const { containerWidth = 520, containerHeight = 280, animationDelay = 0.4, animationStagger = 0.06, enableHover = true } = controls;
     return (
       <div style={{ ...cardStyle, padding: '1rem', margin: '1rem', display: 'flex', justifyContent: 'center' }}>
         <Comp
           images={IMAGES}
-          containerWidth={520}
-          containerHeight={280}
-          animationDelay={0.4}
-          animationStagger={0.06}
+          containerWidth={containerWidth}
+          containerHeight={containerHeight}
+          animationDelay={animationDelay}
+          animationStagger={animationStagger}
           easeType="elastic.out(1, 0.5)"
-          enableHover={true}
+          enableHover={enableHover}
         />
       </div>
     );
@@ -308,7 +376,7 @@ const demos = {
     return (
       <div style={{ ...cardStyle, padding: '3rem 2rem', margin: '1rem', display: 'flex', justifyContent: 'center' }}>
         <Comp
-          logo="https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?q=80&w=100&auto=format"
+          logo="/1.png"
           items={[
             { label: 'Design', bgColor: '#6366f1', textColor: '#fff', links: [{ label: 'UI Library', href: '#', ariaLabel: 'UI Library' }, { label: 'Components', href: '#', ariaLabel: 'Components' }] },
             { label: 'Development', bgColor: '#ec4899', textColor: '#fff', links: [{ label: 'React', href: '#', ariaLabel: 'React' }, { label: 'API', href: '#', ariaLabel: 'API' }] },
@@ -319,11 +387,12 @@ const demos = {
     );
   },
 
-  CardSwap: () => {
+  CardSwap: ({ controls = {} }) => {
     const Comp = componentMap.CardSwap;
+    const { cardDistance = 70, verticalDistance = 80, delay = 4000, pauseOnHover = false, skewAmount = 8, width = 320, height = 220 } = controls;
     return (
       <div style={{ ...cardStyle, padding: '2rem', margin: '1rem', display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: 480 }}>
-        <Comp cardDistance={70} verticalDistance={80} delay={4000} pauseOnHover={false} skewAmount={8} width={320} height={220}>
+        <Comp cardDistance={cardDistance} verticalDistance={verticalDistance} delay={delay} pauseOnHover={pauseOnHover} skewAmount={skewAmount} width={width} height={height}>
           <div style={{ width: 320, height: 220, background: 'linear-gradient(135deg, #6366f1, #ec4899)', borderRadius: 12, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', color: '#fff', padding: '1rem' }}>
             <h3 style={{ margin: '0 0 0.5rem' }}>Card 1</h3>
             <p style={{ fontSize: '0.85rem', opacity: 0.9, margin: 0, textAlign: 'center' }}>Beautiful gradient design</p>
@@ -341,11 +410,12 @@ const demos = {
     );
   },
 
-  Carousel: () => {
+  Carousel: ({ controls = {} }) => {
     const Comp = componentMap.Carousel;
+    const { baseWidth = 300, autoplay = true, autoplayDelay = 3000, pauseOnHover = true, loop = true } = controls;
     return (
       <div style={{ width: '100%', height: 360, margin: '1rem', position: 'relative' }}>
-        <Comp images={IMAGES} baseWidth={300} autoplay={true} autoplayDelay={3000} pauseOnHover={true} loop={true} />
+        <Comp images={IMAGES} baseWidth={baseWidth} autoplay={autoplay} autoplayDelay={autoplayDelay} pauseOnHover={pauseOnHover} loop={loop} />
       </div>
     );
   },
@@ -359,11 +429,12 @@ const demos = {
     );
   },
 
-  CircularGallery: () => {
+  CircularGallery: ({ controls = {} }) => {
     const Comp = componentMap.CircularGallery;
+    const { bend = 3, borderRadius = 0.05, scrollEase = 0.1 } = controls;
     return (
       <div style={{ width: '100%', height: 360, margin: '1rem', position: 'relative' }}>
-        <Comp bend={3} textColor="#ffffff" borderRadius={0.05} scrollEase={0.1} />
+        <Comp bend={bend} textColor="#ffffff" borderRadius={borderRadius} scrollEase={scrollEase} />
       </div>
     );
   },
@@ -386,25 +457,27 @@ const demos = {
     );
   },
 
-  ClickSpark: () => {
+  ClickSpark: ({ controls = {} }) => {
     const Comp = componentMap.ClickSpark;
+    const { sparkSize = 8, sparkRadius = 25, sparkCount = 6, duration = 400 } = controls;
     return (
       <div
         style={{ ...cardStyle, padding: '2rem', margin: '1rem', textAlign: 'center', cursor: 'pointer' }}
         onClick={() => {}}
       >
-        <Comp sparkColor="#a78bfa" sparkSize={8} sparkRadius={25} sparkCount={6} duration={400}>
+        <Comp sparkColor="#a78bfa" sparkSize={sparkSize} sparkRadius={sparkRadius} sparkCount={sparkCount} duration={duration}>
           <span style={{ fontSize: '1rem', color: '#fff', display: 'block', padding: '2rem' }}>✨ Click anywhere on this card</span>
         </Comp>
       </div>
     );
   },
 
-  CountUp: () => {
+  CountUp: ({ controls = {} }) => {
     const Comp = componentMap.CountUp;
+    const { duration = 2.5 } = controls;
     return (
       <div style={{ ...cardStyle, padding: '2rem', margin: '1rem', textAlign: 'center' }}>
-        <Comp from={0} to={1000000} duration={2.5} />
+        <Comp from={0} to={1000000} duration={duration} />
       </div>
     );
   },
@@ -466,11 +539,12 @@ const demos = {
     );
   },
 
-  Dither: () => {
+  Dither: ({ controls = {} }) => {
     const Comp = componentMap.Dither;
+    const { disableAnimation = false, enableMouseInteraction = true } = controls;
     return (
       <div style={{ width: '100%', height: 360, margin: '1rem', position: 'relative' }}>
-        <Comp waveColor={[0.5, 0.5, 0.5]} disableAnimation={false} enableMouseInteraction={true} />
+        <Comp waveColor={[0.5, 0.5, 0.5]} disableAnimation={disableAnimation} enableMouseInteraction={enableMouseInteraction} />
       </div>
     );
   },
@@ -501,20 +575,22 @@ const demos = {
     );
   },
 
-  DotField: () => {
+  DotField: ({ controls = {} }) => {
     const Comp = componentMap.DotField;
+    const { dotRadius = 1.5, dotSpacing = 14, bulgeStrength = 67, glowRadius = 16 } = controls;
     return (
       <div style={{ width: '100%', height: 400, margin: '1rem', position: 'relative' }}>
-        <Comp dotRadius={1.5} dotSpacing={14} bulgeStrength={67} glowRadius={16} />
+        <Comp dotRadius={dotRadius} dotSpacing={dotSpacing} bulgeStrength={bulgeStrength} glowRadius={glowRadius} />
       </div>
     );
   },
 
-  DotGrid: () => {
+  DotGrid: ({ controls = {} }) => {
     const Comp = componentMap.DotGrid;
+    const { dotSize = 10, gap = 15 } = controls;
     return (
       <div style={{ width: '100%', height: 400, margin: '1rem', position: 'relative' }}>
-        <Comp dotSize={10} gap={15} baseColor="#5227FF" activeColor="#5227FF" />
+        <Comp dotSize={dotSize} gap={gap} baseColor="#5227FF" activeColor="#5227FF" />
       </div>
     );
   },
@@ -542,11 +618,12 @@ const demos = {
     );
   },
 
-  FadeContent: () => {
+  FadeContent: ({ controls = {} }) => {
     const Comp = componentMap.FadeContent;
+    const { blur = true, duration = 1000, initialOpacity = 0 } = controls;
     return (
       <div style={{ ...cardStyle, padding: '2rem', margin: '1rem' }}>
-        <Comp blur={true} duration={1000} easing="ease-out" initialOpacity={0}>
+        <Comp blur={blur} duration={duration} easing="ease-out" initialOpacity={initialOpacity}>
           <div>
             <h3 style={{ color: '#fff', margin: '0 0 0.5rem' }}>✦ Fade Content</h3>
             {LOREM}
@@ -556,17 +633,18 @@ const demos = {
     );
   },
 
-  FallingText: () => {
+  FallingText: ({ controls = {} }) => {
     const Comp = componentMap.FallingText;
+    const { gravity = 1.5, fontSize = 1 } = controls;
     return (
-      <div style={{ ...cardStyle, padding: '2rem', margin: '1rem', minHeight: 500 }}>
+      <div style={{ ...cardStyle, padding: '2rem', margin: '1rem', height: 600 }}>
         <Comp
           text="React Bits design patterns for modern interfaces"
           highlightWords={['React', 'Bits', 'design', 'modern']}
           highlightClass="highlighted"
           trigger="click"
-          gravity={1.5}
-          fontSize="1.1rem"
+          gravity={gravity}
+          fontSize={`${fontSize}rem`}
         />
       </div>
     );
@@ -636,11 +714,12 @@ const demos = {
     );
   },
 
-  FuzzyText: () => {
+  FuzzyText: ({ controls = {} }) => {
     const Comp = componentMap.FuzzyText;
+    const { baseIntensity = 0.15, hoverIntensity = 0.4, enableHover = true } = controls;
     return (
       <div style={{ ...cardStyle, padding: '2rem', margin: '1rem', textAlign: 'center' }}>
-        <Comp baseIntensity={0.15} hoverIntensity={0.4} enableHover={true}>
+        <Comp baseIntensity={baseIntensity} hoverIntensity={hoverIntensity} enableHover={enableHover}>
           404
         </Comp>
       </div>
@@ -656,11 +735,12 @@ const demos = {
     );
   },
 
-  GhostCursor: () => {
+  GhostCursor: ({ controls = {} }) => {
     const Comp = componentMap.GhostCursor;
+    const { trailLength = 50, inertia = 0.5, bloomStrength = 0.1 } = controls;
     return (
       <div style={{ width: '100%', height: 400, margin: '1rem', position: 'relative' }}>
-        <Comp trailLength={50} inertia={0.5} color="#B497CF" bloomStrength={0.1} />
+        <Comp trailLength={trailLength} inertia={inertia} color="#B497CF" bloomStrength={bloomStrength} />
       </div>
     );
   },
@@ -679,11 +759,12 @@ const demos = {
     );
   },
 
-  GlareHover: () => {
+  GlareHover: ({ controls = {} }) => {
     const Comp = componentMap.GlareHover;
+    const { glareOpacity = 0.3, glareAngle = -30, glareSize = 300 } = controls;
     return (
       <div style={{ ...cardStyle, padding: '1rem', margin: '1rem', display: 'flex', justifyContent: 'center' }}>
-        <Comp glareColor="#ffffff" glareOpacity={0.3} glareAngle={-30} glareSize={300}>
+        <Comp glareColor="#ffffff" glareOpacity={glareOpacity} glareAngle={glareAngle} glareSize={glareSize}>
           <div style={{ width: 240, height: 180, background: 'linear-gradient(135deg, #6366f1, #a855f7)', borderRadius: 14, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: '1.1rem' }}>
             Hover Me
           </div>
@@ -707,11 +788,12 @@ const demos = {
     );
   },
 
-  GlitchText: () => {
+  GlitchText: ({ controls = {} }) => {
     const Comp = componentMap.GlitchText;
+    const { speed = 1, enableShadows = true, enableOnHover = false } = controls;
     return (
       <div style={{ ...cardStyle, padding: '2rem', margin: '1rem', textAlign: 'center' }}>
-        <Comp speed={1} enableShadows={true} enableOnHover={false}>
+        <Comp speed={speed} enableShadows={enableShadows} enableOnHover={enableOnHover}>
           GLITCH EFFECT
         </Comp>
       </div>
@@ -802,11 +884,12 @@ const demos = {
     );
   },
 
-  LaserFlow: () => {
+  LaserFlow: ({ controls = {} }) => {
     const Comp = componentMap.LaserFlow;
+    const { flowSpeed = 0.35, wispDensity = 1 } = controls;
     return (
       <div style={{ width: '100%', height: 400, margin: '1rem', position: 'relative', borderRadius: 16, overflow: 'hidden', background: '#0a0a0f' }}>
-        <Comp color="#FF79C6" flowSpeed={0.35} wispDensity={1} />
+        <Comp color="#FF79C6" flowSpeed={flowSpeed} wispDensity={wispDensity} />
       </div>
     );
   },
@@ -866,11 +949,12 @@ const demos = {
     );
   },
 
-  Lightning: () => {
+  Lightning: ({ controls = {} }) => {
     const Comp = componentMap.Lightning;
+    const { hue = 220, xOffset = 0, speed = 1, intensity = 1, size = 1 } = controls;
     return (
       <div style={{ width: '100%', height: 360, margin: '1rem', position: 'relative', background: '#030308' }}>
-        <Comp hue={220} xOffset={0} speed={1} intensity={1} size={1} />
+        <Comp hue={hue} xOffset={xOffset} speed={speed} intensity={intensity} size={size} />
       </div>
     );
   },
@@ -884,11 +968,12 @@ const demos = {
     );
   },
 
-  LightRays: () => {
+  LightRays: ({ controls = {} }) => {
     const Comp = componentMap.LightRays;
+    const { raysSpeed = 1.5, lightHeight = 0.5 } = controls;
     return (
       <div style={{ width: '100%', height: 360, margin: '1rem', position: 'relative' }}>
-        <Comp raysOrigin="top-center" raysColor="#00ffff" raysSpeed={1.5} lightHeight={0.5} />
+        <Comp raysOrigin="top-center" raysColor="#00ffff" raysSpeed={raysSpeed} lightHeight={lightHeight} />
       </div>
     );
   },
@@ -942,20 +1027,22 @@ const demos = {
     );
   },
 
-  MagicRings: () => {
+  MagicRings: ({ controls = {} }) => {
     const Comp = componentMap.MagicRings;
+    const { ringCount = 6, speed = 1 } = controls;
     return (
       <div style={{ width: '100%', height: 360, margin: '1rem', position: 'relative' }}>
-        <Comp color="#fc42ff" colorTwo="#42fcff" ringCount={6} speed={1} />
+        <Comp color="#fc42ff" colorTwo="#42fcff" ringCount={ringCount} speed={speed} />
       </div>
     );
   },
 
-  Magnet: () => {
+  Magnet: ({ controls = {} }) => {
     const Comp = componentMap.Magnet;
+    const { padding = 80, strength = 25 } = controls;
     return (
       <div style={{ ...cardStyle, padding: '2rem', margin: '1rem', display: 'flex', justifyContent: 'center' }}>
-        <Comp padding={80} strength={25}>
+        <Comp padding={padding} strength={strength}>
           <div style={{ width: 180, height: 100, background: 'linear-gradient(135deg, #6366f1, #a855f7)', borderRadius: 20, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', cursor: 'pointer', fontSize: '1rem' }}>
             🧲 Hover Me
           </div>
@@ -964,11 +1051,12 @@ const demos = {
     );
   },
 
-  MagnetLines: () => {
+  MagnetLines: ({ controls = {} }) => {
     const Comp = componentMap.MagnetLines;
+    const { rows = 8, columns = 14 } = controls;
     return (
       <div style={{ ...cardStyle, height: 320, margin: '1rem', overflow: 'hidden' }}>
-        <Comp rows={8} columns={14} />
+        <Comp rows={rows} columns={columns} />
       </div>
     );
   },
@@ -982,11 +1070,12 @@ const demos = {
     );
   },
 
-  MetaBalls: () => {
+  MetaBalls: ({ controls = {} }) => {
     const Comp = componentMap.MetaBalls;
+    const { speed = 0.3, ballCount = 15, enableMouseInteraction = true } = controls;
     return (
       <div style={{ width: '100%', height: 400, margin: '1rem', position: 'relative', borderRadius: 16, overflow: 'hidden' }}>
-        <Comp color="#ffffff" speed={0.3} ballCount={15} enableMouseInteraction={true} />
+        <Comp color="#ffffff" speed={speed} ballCount={ballCount} enableMouseInteraction={enableMouseInteraction} />
       </div>
     );
   },
@@ -1006,11 +1095,12 @@ const demos = {
     );
   },
 
-  Noise: () => {
+  Noise: ({ controls = {} }) => {
     const Comp = componentMap.Noise;
+    const { patternSize = 250, patternScaleX = 1.5, patternScaleY = 1.5, patternAlpha = 1.5 } = controls;
     return (
       <div style={{ width: '100%', height: 360, margin: '1rem', position: 'relative', overflow: 'hidden' }}>
-        <Comp patternSize={250} patternScaleX={1.5} patternScaleY={1.5} patternAlpha={1.5} />
+        <Comp patternSize={patternSize} patternScaleX={patternScaleX} patternScaleY={patternScaleY} patternAlpha={patternAlpha} />
       </div>
     );
   },
@@ -1079,20 +1169,22 @@ const demos = {
     );
   },
 
-  PixelTrail: () => {
+  PixelTrail: ({ controls = {} }) => {
     const Comp = componentMap.PixelTrail;
+    const { gridSize = 35, trailSize = 0.08, maxAge = 180 } = controls;
     return (
       <div style={{ width: '100%', height: 400, margin: '1rem', position: 'relative', borderRadius: 16, overflow: 'hidden' }}>
-        <Comp gridSize={35} trailSize={0.08} maxAge={180} color="#a78bfa" />
+        <Comp gridSize={gridSize} trailSize={trailSize} maxAge={maxAge} color="#a78bfa" />
       </div>
     );
   },
 
-  Plasma: () => {
+  Plasma: ({ controls = {} }) => {
     const Comp = componentMap.Plasma;
+    const { speed = 0.6, direction = 'forward', scale = 1.1, opacity = 1 } = controls;
     return (
       <div style={{ width: '100%', height: 360, margin: '1rem', position: 'relative' }}>
-        <Comp color="#ff6b35" speed={0.6} direction="forward" scale={1.1} opacity={1} />
+        <Comp color="#ff6b35" speed={speed} direction={direction} scale={scale} opacity={opacity} />
       </div>
     );
   },
@@ -1124,11 +1216,12 @@ const demos = {
     );
   },
 
-  Ribbons: () => {
+  Ribbons: ({ controls = {} }) => {
     const Comp = componentMap.Ribbons;
+    const { baseThickness = 30, enableShaderEffect = false } = controls;
     return (
       <div style={{ width: '100%', height: 400, margin: '1rem', position: 'relative', borderRadius: 16, overflow: 'hidden' }}>
-        <Comp colors={['#FC8EAC', '#FF6B6B', '#C084FC', '#60A5FA']} baseThickness={30} enableShaderEffect={false} />
+        <Comp colors={['#FC8EAC', '#FF6B6B', '#C084FC', '#60A5FA']} baseThickness={baseThickness} enableShaderEffect={enableShaderEffect} />
       </div>
     );
   },
@@ -1210,12 +1303,13 @@ const demos = {
     );
   },
 
-  ScrollReveal: () => {
+  ScrollReveal: ({ controls = {} }) => {
     const Comp = componentMap.ScrollReveal;
+    const { baseOpacity = 0.1, enableBlur = true, baseRotation = 3, blurStrength = 4 } = controls;
     return (
       <div style={{ ...cardStyle, height: 500, margin: '1rem', position: 'relative' }}>
         <div style={{ height: '100%', padding: '2rem', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-          <Comp baseOpacity={0} enableBlur={true} baseRotation={5} blurStrength={10}>
+          <Comp baseOpacity={baseOpacity} enableBlur={enableBlur} baseRotation={baseRotation} blurStrength={blurStrength}>
             Scroll into view to reveal this content with smooth blur and rotation
           </Comp>
         </div>
@@ -1223,11 +1317,12 @@ const demos = {
     );
   },
 
-  ScrollStack: () => {
+  ScrollStack: ({ controls = {} }) => {
     const Comp = componentMap.ScrollStack;
+    const { itemDistance = 120, itemScale = 0.04, itemStackDistance = 35, rotationAmount = 2, blurAmount = 3 } = controls;
     return (
       <div style={{ width: '100%', height: 500, margin: '1rem', position: 'relative', borderRadius: 16, overflow: 'hidden' }}>
-        <Comp itemDistance={120} itemScale={0.04} itemStackDistance={35} rotationAmount={2} blurAmount={3}>
+        <Comp itemDistance={itemDistance} itemScale={itemScale} itemStackDistance={itemStackDistance} rotationAmount={rotationAmount} blurAmount={blurAmount}>
           <div className="scroll-stack-card">
             <div style={{ height: 280, background: 'linear-gradient(135deg, #6366f1, #8b5cf6)', borderRadius: 16, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: '1.5rem' }}>Card 1</div>
           </div>
@@ -1251,11 +1346,12 @@ const demos = {
     );
   },
 
-  ShapeBlur: () => {
+  ShapeBlur: ({ controls = {} }) => {
     const Comp = componentMap.ShapeBlur;
+    const { variation = 0, shapeSize = 1.2, roundness = 0.4 } = controls;
     return (
       <div style={{ width: '100%', height: 400, margin: '1rem', position: 'relative', borderRadius: 16, overflow: 'hidden' }}>
-        <Comp variation={0} shapeSize={1.2} roundness={0.4} />
+        <Comp variation={variation} shapeSize={shapeSize} roundness={roundness} />
       </div>
     );
   },
@@ -1278,38 +1374,42 @@ const demos = {
     );
   },
 
-  Shuffle: () => {
+  Shuffle: ({ controls = {} }) => {
     const Comp = componentMap.Shuffle;
+    const { shuffleDirection = 'right', duration = 0.35, shuffleTimes = 1, stagger = 0.03 } = controls;
     return (
       <div style={{ ...cardStyle, padding: '1rem', margin: '1rem', display: 'flex', justifyContent: 'center' }}>
-        <Comp text="Hello World" shuffleDirection="right" duration={0.35} animationMode="evenodd" shuffleTimes={1} ease="power3.out" stagger={0.03} />
+        <Comp text="Hello World" shuffleDirection={shuffleDirection} duration={duration} animationMode="evenodd" shuffleTimes={shuffleTimes} ease="power3.out" stagger={stagger} />
       </div>
     );
   },
 
-  SideRays: () => {
+  SideRays: ({ controls = {} }) => {
     const Comp = componentMap.SideRays;
+    const { speed = 2.5, intensity = 2 } = controls;
     return (
       <div style={{ width: '100%', height: 360, margin: '1rem', position: 'relative' }}>
-        <Comp speed={2.5} rayColor1="#EAB308" rayColor2="#96c8ff" intensity={2} />
+        <Comp speed={speed} rayColor1="#EAB308" rayColor2="#96c8ff" intensity={intensity} />
       </div>
     );
   },
 
-  SplashCursor: () => {
+  SplashCursor: ({ controls = {} }) => {
     const Comp = componentMap.SplashCursor;
+    const { SPLAT_FORCE = 6000, COLOR_UPDATE_SPEED = 10, RAINBOW_MODE = true } = controls;
     return (
       <div style={{ width: '100%', height: 400, margin: '1rem', position: 'relative', borderRadius: 16, overflow: 'hidden' }}>
-        <Comp SPLAT_FORCE={6000} COLOR_UPDATE_SPEED={10} RAINBOW_MODE={true} />
+        <Comp SPLAT_FORCE={SPLAT_FORCE} COLOR_UPDATE_SPEED={COLOR_UPDATE_SPEED} RAINBOW_MODE={RAINBOW_MODE} />
       </div>
     );
   },
 
-  Silk: () => {
+  Silk: ({ controls = {} }) => {
     const Comp = componentMap.Silk;
+    const { speed = 5, scale = 1, noiseIntensity = 1.5, rotation = 0 } = controls;
     return (
       <div style={{ ...cardStyle, height: 360, margin: '1rem', overflow: 'hidden' }}>
-        <Comp speed={5} scale={1} color="#7B7481" noiseIntensity={1.5} rotation={0} />
+        <Comp speed={speed} scale={scale} color="#7B7481" noiseIntensity={noiseIntensity} rotation={rotation} />
       </div>
     );
   },
@@ -1342,19 +1442,6 @@ const demos = {
             <p style={{ color: '#aaa', margin: 0, fontSize: '0.9rem' }}>Move your mouse over this card</p>
           </div>
         </Comp>
-      </div>
-    );
-  },
-
-  Stack: () => {
-    const Comp = componentMap.Stack;
-    return (
-      <div style={{ ...cardStyle, padding: '1rem', margin: '1rem', display: 'flex', justifyContent: 'center' }}>
-        <Comp cards={[
-          <img src="https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?q=80&w=500&auto=format" alt="card-1" className="card-image" />,
-          <img src="https://images.unsplash.com/photo-1449844908441-8829872d2607?q=80&w=500&auto=format" alt="card-2" className="card-image" />,
-          <img src="https://images.unsplash.com/photo-1508014464832-8e604b4f5c28?q=80&w=500&auto=format" alt="card-3" className="card-image" />,
-        ]} />
       </div>
     );
   },
@@ -1404,29 +1491,22 @@ const demos = {
     );
   },
 
-  Strands: () => {
+  Strands: ({ controls = {} }) => {
     const Comp = componentMap.Strands;
+    const { count = 3, speed = 0.5, amplitude = 1 } = controls;
     return (
       <div style={{ width: '100%', height: 360, margin: '1rem', position: 'relative' }}>
-        <Comp colors={['#F97316', '#7C3AED', '#06B6D4']} count={3} speed={0.5} amplitude={1} />
+        <Comp colors={['#F97316', '#7C3AED', '#06B6D4']} count={count} speed={speed} amplitude={amplitude} />
       </div>
     );
   },
 
-  TargetCursor: () => {
+  TargetCursor: ({ controls = {} }) => {
     const Comp = componentMap.TargetCursor;
+    const { spinDuration = 2, hideDefaultCursor = true, parallaxOn = true } = controls;
     return (
       <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 16, height: 360, margin: '1rem', position: 'relative', cursor: 'none', overflow: 'hidden' }}>
-        <Comp spinDuration={2} hideDefaultCursor={true} parallaxOn={true} />
-      </div>
-    );
-  },
-
-  TextCursor: () => {
-    const Comp = componentMap.TextCursor;
-    return (
-      <div style={{ ...cardStyle, padding: '2rem', margin: '1rem', textAlign: 'center', minHeight: 280, cursor: 'none', position: 'relative', overflow: 'hidden' }}>
-        <Comp text="Hello! This is a text cursor demo with trailing effect." spacing={80} followMouseDirection={true} randomFloat={true} exitDuration={0.3} removalInterval={20} maxPoints={10} />
+        <Comp spinDuration={spinDuration} hideDefaultCursor={hideDefaultCursor} parallaxOn={parallaxOn} />
       </div>
     );
   },
@@ -1440,11 +1520,12 @@ const demos = {
     );
   },
 
-  TextType: () => {
+  TextType: ({ controls = {} }) => {
     const Comp = componentMap.TextType;
+    const { typingSpeed = 75, pauseDuration = 1500, showCursor = true } = controls;
     return (
       <div style={{ ...cardStyle, padding: '2rem', margin: '1rem', textAlign: 'center' }}>
-        <Comp text={['Hello World', 'React Bits', 'Design Patterns']} typingSpeed={75} pauseDuration={1500} showCursor={true} cursorCharacter="|" />
+        <Comp text={['Hello World', 'React Bits', 'Design Patterns']} typingSpeed={typingSpeed} pauseDuration={pauseDuration} showCursor={showCursor} cursorCharacter="|" />
       </div>
     );
   },
@@ -1467,11 +1548,12 @@ const demos = {
     );
   },
 
-  TrueFocus: () => {
+  TrueFocus: ({ controls = {} }) => {
     const Comp = componentMap.TrueFocus;
+    const { manualMode = false, blurAmount = 5, animationDuration = 0.5, pauseBetweenAnimations = 1 } = controls;
     return (
       <div style={{ ...cardStyle, padding: '2rem', margin: '1rem', textAlign: 'center' }}>
-        <Comp sentence="True Focus" manualMode={false} blurAmount={5} borderColor="red" animationDuration={2} pauseBetweenAnimations={1} />
+        <Comp sentence="True Focus" manualMode={manualMode} blurAmount={blurAmount} borderColor="red" animationDuration={animationDuration} pauseBetweenAnimations={pauseBetweenAnimations} />
       </div>
     );
   },
@@ -1495,11 +1577,12 @@ const demos = {
     );
   },
 
-  Waves: () => {
+  Waves: ({ controls = {} }) => {
     const Comp = componentMap.Waves;
+    const { waveSpeedX = 0.02, waveSpeedY = 0.01, waveAmpX = 40, waveAmpY = 20, friction = 0.9, tension = 0.01 } = controls;
     return (
       <div style={{ width: '100%', height: 360, margin: '1rem', position: 'relative' }}>
-        <Comp lineColor="#fff" backgroundColor="rgba(255, 255, 255, 0.2)" waveSpeedX={0.02} waveSpeedY={0.01} waveAmpX={40} waveAmpY={20} friction={0.9} tension={0.01} />
+        <Comp lineColor="#fff" backgroundColor="rgba(255, 255, 255, 0.2)" waveSpeedX={waveSpeedX} waveSpeedY={waveSpeedY} waveAmpX={waveAmpX} waveAmpY={waveAmpY} friction={friction} tension={tension} />
       </div>
     );
   },
@@ -1538,6 +1621,25 @@ const demos = {
 };
 
 export default function Showcase({ componentName, allComponents, onSelect }) {
+  const [controls, setControls] = useState({});
+  const [replayCount, setReplayCount] = useState(0);
+
+  useEffect(() => {
+    const config = propConfigs[componentName];
+    if (config) {
+      const defaults = {};
+      config.forEach(p => { defaults[p.name] = p.default; });
+      setControls(defaults);
+    } else {
+      setControls({});
+    }
+    setReplayCount(0);
+  }, [componentName]);
+
+  const handleControlChange = (name, value) => {
+    setControls(prev => ({ ...prev, [name]: value }));
+  };
+
   if (!componentName) {
     return (
       <div className="welcome">
@@ -1564,9 +1666,19 @@ export default function Showcase({ componentName, allComponents, onSelect }) {
       <h2 className="component-title">{componentName}</h2>
       <div className="demo-area">
         <Suspense fallback={<div className="loading">Loading {componentName}...</div>}>
-          <DemoComponent />
+          <DemoComponent key={replayCount} controls={controls} />
         </Suspense>
       </div>
+      <div style={{ display: 'flex', justifyContent: 'center', margin: '0 1rem' }}>
+        <button className="nav-btn" onClick={() => setReplayCount(c => c + 1)}>
+          ⟳ Replay
+        </button>
+      </div>
+      <PropControls
+        config={propConfigs[componentName]}
+        values={controls}
+        onChange={handleControlChange}
+      />
       <div className="component-nav">
         <div className="nav-buttons">
           <button className="nav-btn prev-btn" onClick={() => {
